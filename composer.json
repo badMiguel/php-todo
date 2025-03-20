@@ -1,0 +1,9 @@
+{
+  "name": "miguel/php-todo",
+  "autoload": {
+    "psr-4": {
+      "phpTodo\\": "src/"
+    }
+  },
+  "require": {}
+}
