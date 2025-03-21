@@ -8,3 +8,4 @@ learning php
 - simple search functionaility
 - mysql (pdo)
 - learn how to import php files 
+- prg pattern
