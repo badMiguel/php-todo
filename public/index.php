@@ -19,5 +19,6 @@ switch ($route) {
         require_once __DIR__ .  '/../src/views/error.php';
         break;
     default:
-        break;
+        header("Location: /error?hint=unknown%20route");
+        exit();
 }
