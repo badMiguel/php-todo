@@ -43,4 +43,5 @@ try {
 } catch (PDOException $err) {
     // error handle
     error_log("error initialising db\n$err");
+    header("Location: /error");
 }
