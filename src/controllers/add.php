@@ -15,9 +15,13 @@ if (!$todoTitle || !$todoDesc) {
     exit();
 }
 
-$statement = $db->prepare("
-    INSERT INTO todo (todo_title, todo_desc, completed) VALUES (:title, :desc, 0) 
-");
-$statement->execute(["title" => $todoTitle, "desc" => $todoDesc]);
-
-header("Location: /");
+try {
+    $statement = $db->prepare("
+        INSERT INTO todo (todo_title, todo_desc, completed) VALUES (:title, :desc, 0) 
+    ");
+    $statement->execute(["title" => $todoTitle, "desc" => $todoDesc]);
+    header("Location: /");
+} catch (PDOException $err) {
+    header("Location: /error?hint=error%20adding%20todo%20at%20add.php&message={$err->getMessage()}");
+    exit();
+}
