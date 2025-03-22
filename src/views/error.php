@@ -9,6 +9,14 @@
 </head>
 
 <body>
+
+    <?php
+    if (!isset($_GET["hint"])) {
+        header("Location: /");
+        exit();
+    }
+    ?>
+
     <h1>oops...</h1>
     <p><em>dw i got u</em></p>
     <br>
@@ -19,6 +27,8 @@
         echo "<p><strong>error message:</strong> {$_GET["message"]}</p>";
     }
     ?>
+
+    <p><a href="/">Back to Home</a></p>
 </body>
 
 </html>
