@@ -9,7 +9,16 @@
 </head>
 
 <body>
-    <p>Error but i dont have the logs noob</p>
+    <h1>oops...</h1>
+    <p><em>dw i got u</em></p>
+    <br>
+
+    <?php
+    echo "<p><strong>hint:</strong> {$_GET["hint"]}</p>";
+    if (isset($_GET["message"])) {
+        echo "<p><strong>error message:</strong> {$_GET["message"]}</p>";
+    }
+    ?>
 </body>
 
 </html>

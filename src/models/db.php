@@ -42,6 +42,6 @@ try {
     error_log("successfully initialised db");
 } catch (PDOException $err) {
     // error handle
-    error_log("error initialising db\n$err");
-    header("Location: /error");
+    header("Location: /error?hint=error%20initialising%20db%20at%20models.php&message={$err->getMessage()}");
+    exit();
 }

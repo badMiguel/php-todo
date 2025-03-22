@@ -2,23 +2,17 @@
 
 declare(strict_types=1);
 
-function checkVal(string|PDO|null ...$val): bool
-{
-    foreach ($val as $v) {
-        if (!$v) {
-            return false;
-        }
-    }
-    return true;
+require __DIR__ . "/../models/db.php";
+if (!$db) {
+    header("Location: /error?hint=db%20doesnt%20exist%20at%20add.php.%20Maybe%20the%20db%didnt%20initialise%20at%20db.php");
+    exit();
 }
 
-require __DIR__ . "/../models/db.php";
 $todoTitle = htmlspecialchars($_POST["todo_title"]);
 $todoDesc = htmlspecialchars($_POST["todo_desc"]);
-
-if (!checkVal($todoTitle, $todoDesc, $db)) {
-    header("Location: /error");
-    return;
+if (!$todoTitle || !$todoDesc) {
+    header("Location: /?status=fail");
+    exit();
 }
 
 $statement = $db->prepare("

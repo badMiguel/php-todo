@@ -12,6 +12,15 @@
     <h1>Todo App</h1>
     <p><em>learning php!</em></p>
 
+    <?php
+    $status = $_GET["status"];
+    if (isset($status)) {
+        if ($status == "fail") {
+            echo "<p style='color:red'>please input title and description</p>";
+        }
+    }
+    ?>
+
     <form action="add" method="post">
         <label for="todo_title">Todo title</label>
         <input type="text" id="todo_title" name="todo_title" />
@@ -25,8 +34,8 @@
     require_once __DIR__ . "/../models/db.php";
 
     if (!$db) {
-        header("Location: /error");
-        return;
+        header("Location: /error?hint=db%20doesnt%20exist%20at%20home.php.%20Maybe%20the%20db%didnt%20initialise%20at%20db.php");
+        exit();
     }
 
     $statement = $db->query("SELECT * FROM todo", PDO::FETCH_ASSOC);
