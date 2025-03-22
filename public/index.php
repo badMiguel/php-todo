@@ -1,6 +1,9 @@
 <?php
 
-$route = $_SERVER["REQUEST_URI"];
+$route = $_SERVER["PATH_INFO"];
+if (!$route) {
+    $route = "/";
+}
 
 switch ($route) {
     case "/":
