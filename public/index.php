@@ -9,9 +9,6 @@ switch ($route) {
     case "/add":
         require_once __DIR__ .  '/../src/controllers/add.php';
         break;
-    case "/edit":
-        require_once __DIR__ .  '/../src/controllers/edit.php';
-        break;
     case "/delete":
         require_once __DIR__ .  '/../src/controllers/delete.php';
         break;

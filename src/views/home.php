@@ -14,10 +14,10 @@
 
     <form action="add" method="post">
         <label for="todo_title">Todo title</label>
-        <input type="text" id="todo_title" name="todo_title" \>
+        <input type="text" id="todo_title" name="todo_title" />
         <label for="todo_desc">Todo desc</label>
-        <input type="text" id="todo_desc" name="todo_desc" \>
-        <input type="submit" value="Submit" \>
+        <input type="text" id="todo_desc" name="todo_desc" />
+        <input type="submit" value="Submit" />
     </form>
 
     <h2>List:</h2>
@@ -40,15 +40,10 @@
         <p><em>Last updated: {$todo['updated_at']}</em></p>
         <p>{$todo['todo_desc']}</p>
 
-        <div style='display: flex'>
-            <form action='edit' method='post'>
-                <input type='submit' value='Edit' \>
-            </form>
-
-            <form action='delete' method='post'>
-                <input type='submit' value='Delete' \>
-            </form>
-        </div>
+        <form action='delete' method='post'>
+            <input type='hidden' name='todo_id' value='{$todo['todo_id']}' />
+            <input type='submit' value='Delete' />
+        </form>
 
         <hr>
     ";
