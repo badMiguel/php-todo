@@ -1,5 +1,7 @@
-<form action="" method="post">
-    <label for="add">Add Todo</label>
-    <input type="text" id="add" name="add" \>
+<form action="add" method="post">
+    <label for="todo_title">Todo title</label>
+    <input type="text" id="todo_title" name="todo_title" \>
+    <label for="todo_desc">Todo desc</label>
+    <input type="text" id="todo_desc" name="todo_desc" \>
     <input type="submit" value="Submit" \>
 </form>

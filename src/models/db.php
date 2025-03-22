@@ -1,6 +1,7 @@
 <?php
 
-echo "foo<br>";
+error_log(message: "initialising db");
+
 try {
     $db = new PDO("mysql:host=localhost;dbname=todo_db", "todo_db", "password");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -17,9 +18,8 @@ try {
         )
     ");
 
-    echo "db initialised <br>";
+    error_log("successfully initialised db");
 } catch (PDOException $err) {
     // error handle
-    echo "<h1>ERROR INITIALIZE DB</h1>";
-    echo "<p>$err</p>";
+    error_log("error initialising db\n$err");
 }
