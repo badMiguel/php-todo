@@ -20,6 +20,40 @@
         <input type="submit" value="Submit" \>
     </form>
 
+    <h2>List:</h2>
+    <?php
+    require_once __DIR__ . "/../models/db.php";
+
+    if (!$db) {
+        header("Location: /error");
+        return;
+    }
+
+    $statement = $db->query("SELECT * FROM todo", PDO::FETCH_ASSOC);
+    $todoList = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+    foreach ($todoList as $todo) {
+        echo "
+        <h3>{$todo['todo_title']}</h3>
+        <p><em>Created at: {$todo['created_at']}</em></p>
+        <p><em>Last updated: {$todo['updated_at']}</em></p>
+        <p>{$todo['todo_desc']}</p>
+
+        <div style='display: flex'>
+            <form action='edit' method='post'>
+                <input type='submit' value='Edit' \>
+            </form>
+
+            <form action='delete' method='post'>
+                <input type='submit' value='Delete' \>
+            </form>
+        </div>
+
+        <hr>
+    ";
+    }
+    ?>
 </body>
 
 </html>
