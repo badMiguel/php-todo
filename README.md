@@ -9,7 +9,7 @@ learning php. this uses mysql as the database
 
 ### run php server
 
-after cloning, inside the php-todo directory...
+after cloning, run the command inside the php-todo directory...
 
 ```bash
 php -S 127.0.0.1:8080 -t public
@@ -24,10 +24,7 @@ if you get the following error php is likely not in envrionment variables:
 operable program or batch file.
 ```
 
-you can either setup apache instead of running the php command, or...
-
-**one command fix**
-
+you can either setup apache instead of running the php command, or
 if you installed php through xampp, open command prompt as administrator
 
 ```
@@ -45,7 +42,32 @@ php -v
 ```sql
 -- create the database
 mysql -u root -p -e "CREATE DATABASE todo_db"
+```
 
+> [!NOTE]
+> if you did not set up a password just press enter
+
+**on windows**
+
+if using xampp, make sure to enable mysql on xampp control panel
+
+similar to above, if you get the following error mysql is likely not in envrionment variables:
+
+```
+'mysql' is not recognized as an internal or external command,
+operable program or batch file.
+```
+
+if you installed mysql through xampp, open command prompt as administrator
+
+```
+setx PATH "%PATH%;C:\xampp\mysql\bin" /M
+```
+
+close and reopen command prompt and verify mysql is now in env variable:
+
+```
+mysql --version
 ```
 
 ### create mysql user
