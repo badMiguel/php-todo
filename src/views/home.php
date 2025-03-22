@@ -13,11 +13,8 @@
     <p><em>learning php!</em></p>
 
     <?php
-    $status = $_GET["status"];
-    if (isset($status)) {
-        if ($status == "fail") {
-            echo "<p style='color:red'>please input title and description</p>";
-        }
+    if (isset($_GET["status"]) && $_GET["status"] == "fail") {
+        echo "<p style='color:red'>please input title and description</p>";
     }
     ?>
 
