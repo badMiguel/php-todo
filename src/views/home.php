@@ -32,7 +32,6 @@
     $statement = $db->query("SELECT * FROM todo", PDO::FETCH_ASSOC);
     $todoList = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-
     foreach ($todoList as $todo) {
         echo "
         <h3>{$todo['todo_title']}</h3>

@@ -5,13 +5,13 @@ declare(strict_types=1);
 $todoId = $_POST['todo_id'];
 if (!isset($todoId)) {
     header("Location: /error");
-    return;
+    exit();
 }
 
 require_once __DIR__ . "/../models/db.php";
 if (!$db) {
     header("Location: /error");
-    return;
+    exit();
 }
 
 $statement = $db->prepare("
@@ -20,3 +20,4 @@ $statement = $db->prepare("
 $statement->execute(["todoId" => $todoId]);
 
 header("Location: /");
+exit();
