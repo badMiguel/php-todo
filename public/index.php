@@ -1,7 +1,7 @@
 <?php
 
 $route = "/";
-if ($_SERVER["PATH_INFO"]) {
+if (isset($_SERVER["PATH_INFO"])) {
     $route = $_SERVER["PATH_INFO"];
 }
 
