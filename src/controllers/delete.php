@@ -14,10 +14,14 @@ if (!$db) {
     exit();
 }
 
-$statement = $db->prepare("
-    DELETE FROM todo WHERE todo_id = :todoId
-");
-$statement->execute(["todoId" => $todoId]);
-
-header("Location: /");
-exit();
+try {
+    $statement = $db->prepare("
+        DELETE FROM todo WHERE todo_id = :todoId
+    ");
+    $statement->execute(["todoId" => $todoId]);
+    header("Location: /");
+    exit();
+} catch (PDOException $err) {
+    header("Location: /error?hint=error%20deleting%20todo%20at%20delete.php&message={$err->getMessage()}");
+    exit();
+}
