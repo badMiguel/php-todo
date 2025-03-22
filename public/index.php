@@ -5,6 +5,24 @@ if (!$route) {
     $route = "/";
 }
 
+/*
+
+note about "__DIR__":
+- it is platform independent and should work similar to linux/windows
+- it returns exact path were it is called
+
+try uncommetting this and refreshing the website:
+
+    echo __DIR__;
+
+
+-------
+
+furthermore, forward slashes "/" should work on windows
+php will convert it to backslash "\"
+
+*/
+
 switch ($route) {
     case "/":
         require_once __DIR__ .  '/../src/views/home.php';
