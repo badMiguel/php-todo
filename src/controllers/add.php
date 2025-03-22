@@ -8,8 +8,8 @@ if (!$db) {
     exit();
 }
 
-$todoTitle = htmlspecialchars($_POST["todo_title"]);
-$todoDesc = htmlspecialchars($_POST["todo_desc"]);
+$todoTitle = isset($_POST["todo_title"]) ? htmlspecialchars($_POST["todo_title"]) : null;
+$todoDesc = isset($_POST["todo_desc"]) ? htmlspecialchars($_POST["todo_desc"]) : null;
 if (!$todoTitle || !$todoDesc) {
     header("Location: /?status=fail");
     exit();

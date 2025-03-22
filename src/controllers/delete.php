@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 $todoId = $_POST['todo_id'];
 if (!isset($todoId)) {
-    header("Location: /error?hint=todo%20id%20doesnt%20exist%20at%20delete.php");
+    header("Location: /");
     exit();
 }
 
