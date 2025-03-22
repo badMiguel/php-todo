@@ -4,10 +4,40 @@ learning php. this uses mysql as the database
 
 ## getting started
 
-### after cloning, inside the php-todo directory, run php server
+> [!IMPORTANT]
+> i use linux. some things might not work in windows/mac im sorry
+
+### run php server
+
+after cloning, inside the php-todo directory...
 
 ```bash
 php -S 127.0.0.1:8080 -t public
+```
+
+**on windows**
+
+if you get the following error php is likely not in envrionment variables:
+
+```
+'php' is not recognized as an internal or external command,
+operable program or batch file.
+```
+
+you can either setup apache instead of running the php command, or...
+
+**one command fix**
+
+if you installed php through xampp, open command prompt as administrator
+
+```
+setx PATH "%PATH%;C:\xampp\php" /M
+```
+
+close and reopen command prompt and verify php is now in env variable:
+
+```
+php -v
 ```
 
 ### make sure you create the db
@@ -32,6 +62,3 @@ mysql -u root -p -e "GRANT ALL PRIVILEGES ON todo_db.* TO 'todo_user'@'localhost
 -- apply privileges
 mysql -u root -p -e "FLUSH PRIVILEGES"
 ```
-
-> [!IMPORTANT]
-> i use linux. some things might not work in windows/mac im sorry
