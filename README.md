@@ -25,7 +25,7 @@ operable program or batch file.
 ```
 
 you can either setup apache instead of running the php command, or
-if you installed php through xampp, open command prompt as administrator
+if you installed php through xampp, open command prompt **as administrator**
 
 ```
 setx PATH "%PATH%;C:\xampp\php" /M
@@ -36,6 +36,8 @@ close and reopen command prompt and verify php is now in env variable:
 ```
 php -v
 ```
+
+---
 
 ### make sure you create the db
 
@@ -69,6 +71,8 @@ close and reopen command prompt and verify mysql is now in env variable:
 ```
 mysql --version
 ```
+
+---
 
 ### create mysql user
 
